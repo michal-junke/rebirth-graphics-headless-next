@@ -13,5 +13,12 @@
  * @return str Frontend origin URL, i.e., http://localhost:3000.
  */
 function get_frontend_origin() {
-    return 'http://localhost:3000';
+        // allow both dev and production frontend to connect to WP
+        $origin = get_http_origin();
+        if ($origin && in_array( $origin, array(
+            'http://localhost:3000',
+            'http://localhost:3001',
+        ))) {
+            return $origin;
+        }
 }
