@@ -1,9 +1,18 @@
-/* eslint-disable global-require */
 module.exports = {
-  plugins: [
-    require('postcss-easy-import')({ prefix: '_' }), // keep this first
-    require('autoprefixer')({
-      /* ...options */
-    }), // so imports are auto-prefixed too
-  ],
-};
+    plugins: [
+      'tailwindcss',
+      process.env.NODE_ENV === 'production'
+        ? [
+            '@fullhuman/postcss-purgecss',
+            {
+              content: [
+                './pages/**/*.{js,jsx,ts,tsx}',
+                './components/**/*.{js,jsx,ts,tsx}',
+              ],
+              defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+            },
+          ]
+        : undefined,
+      'postcss-preset-env',
+    ],
+  }

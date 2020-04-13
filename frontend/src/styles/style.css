@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Arsenal:400,700&display=swap&subset=latin-ext');
+
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+@tailwind utilities;
