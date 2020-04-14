@@ -8,7 +8,7 @@ const Layout = props => {
   return (
     <div>
       <Header />
-      <main>
+      <main className={`py-10 ${props.padding ? 'px-3 md:px-24' : ''}`}>
         {children}
       </main>
       <Footer />
