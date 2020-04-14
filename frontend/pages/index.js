@@ -6,7 +6,6 @@ import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu/Menu';
 import Config from '../config';
-import Logo from '../static/images/starter-kit-logo.svg';
 
 const wp = new WPAPI({ endpoint: Config.apiUrl });
 
