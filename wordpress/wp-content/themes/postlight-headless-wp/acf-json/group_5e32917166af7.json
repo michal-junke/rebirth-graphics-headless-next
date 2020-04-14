@@ -1,0 +1,96 @@
+{
+    "key": "group_5e32917166af7",
+    "title": "Ogólna konfiguracja",
+    "fields": [
+        {
+            "key": "field_5e329195ee926",
+            "label": "Zdjęcie na stronie głównej",
+            "name": "main_page_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5e94b3ef8e6a4",
+            "label": "Adres Behance",
+            "name": "behance_url",
+            "type": "url",
+            "instructions": "Adres do Twojego profilu Behance.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5e94b4118e6a5",
+            "label": "Adres Facebooka",
+            "name": "facebook_url",
+            "type": "url",
+            "instructions": "Adres do Twojego profilu na Facebooku.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5e94b4318e6a6",
+            "label": "Adres Instagrama",
+            "name": "instagram_url",
+            "type": "url",
+            "instructions": "Adres do Twojego profilu na Instagramie.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "headless-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1586803793
+}
