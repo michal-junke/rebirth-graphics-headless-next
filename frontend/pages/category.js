@@ -5,7 +5,7 @@ import Error from 'next/error';
 import WPAPI from 'wpapi';
 import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
-import Menu from '../components/Menu';
+import Menu from '../components/Menu/Menu';
 import Config from '../config';
 
 const wp = new WPAPI({ endpoint: Config.apiUrl });

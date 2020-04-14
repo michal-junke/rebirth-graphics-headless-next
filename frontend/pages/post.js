@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Error from 'next/error';
-import Menu from '../components/Menu';
 import WPAPI from 'wpapi';
+import Menu from '../components/Menu/Menu';
 import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Config from '../config';
