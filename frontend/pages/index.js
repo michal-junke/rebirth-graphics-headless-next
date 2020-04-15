@@ -6,10 +6,12 @@ import WPAPI from 'wpapi';
 import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu/Menu';
+
 import Config from '../config';
 
 import Re from '../public/images/re-home-page.svg';
 const wp = new WPAPI({ endpoint: Config.apiUrl });
+wp.globalOptions = wp.registerRoute('acf/v3/options', '/headless-settings');
 
 const headerImageStyle = {
   marginTop: 50,
@@ -26,7 +28,7 @@ const tokenExpired = () => {
 
 class Index extends Component {
 
-  static async getInitialProps() {
+  static async getInitialProps() { 
     try {
       const page = await
         wp
@@ -37,7 +39,12 @@ class Index extends Component {
             return data[0];
           });
 
-      return { page };
+      const acfOptions = await
+        wp
+          .globalOptions()
+          .then(data => data.acf);
+
+      return { page, acfOptions };
     } catch (err) {
       if (err.data.status === 403) {
         tokenExpired();
@@ -48,8 +55,7 @@ class Index extends Component {
   }
 
   render() {
-    const { headerMenu, page } = this.props;
-
+    const { headerMenu, page, acfOptions } = this.props;
     return (
       <Layout>
         <Menu menu={headerMenu} padding/>
@@ -57,6 +63,12 @@ class Index extends Component {
         <img src="https://via.placeholder.com/600x700" alt="" className="w-full my-4"/>
         <Re className={`absolute bottom-5 right-5`}/>
         </div>
+        <section className="social">
+          <p className={styles.tilted}>... passion for creation ...</p>
+          <a href={acfOptions.behance_url}>Behance</a>
+          <a href={acfOptions.facebook_url}>Facebook</a>
+          <a href={acfOptions.instagram_url}>Instagram</a>
+        </section>
          <div // Content of the page in WP
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
