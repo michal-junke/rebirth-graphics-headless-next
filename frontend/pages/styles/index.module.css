@@ -1,0 +1,13 @@
+.tilted {
+    transform: rotate(-4.46deg);
+    font-family: Allura, sans serif;
+    font-size: 24px;
+}
+
+.bottom-5 {
+    bottom: 5%;
+}
+
+.right-5 {
+    right: 5%;
+}
