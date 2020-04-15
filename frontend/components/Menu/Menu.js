@@ -69,7 +69,7 @@ class Menu extends Component {
                   
                   <a>
                     <div className="menu-button">
-                      <img src="https://via.placeholder.com/150?Text=Ikona" alt="" className="rounded-full w-10/12 mx-auto block lg:hidden" />
+                      <img src="https://via.placeholder.com/150?Text=Ikona" alt="" className="rounded-full w-10/12 mx-auto block lg:hidden menu-circle" />
                       <p className="text-center text-xs uppercase w-9/12 mx-auto mt-2 lg:text-xl"><span className="mr-1">I</span>{item.title}</p>
                     </div>
                   </a>
