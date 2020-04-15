@@ -4,5 +4,14 @@
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
+
+/* Custom properities */
+.grid-padding {
+    @apply px-6;
+}
+
+.grid-margin {
+    @apply mx-6;
+}
 /* purgecss end ignore */
 @tailwind utilities;

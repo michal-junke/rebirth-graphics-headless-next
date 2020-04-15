@@ -64,6 +64,7 @@ class Index extends Component {
         <img src="https://via.placeholder.com/600x700" alt="" className="w-full my-4"/>
         <Re className={[styles['bottom-5'], styles['right-5'], 'absolute'].join(' ')}/>
         </div>
+        <div className="lg:flex lg:justify-between lg:items-center">
           <section className="social flex flex-col container grid-padding lg:order-1">
             <p className={[styles.tilted, 'lg:hidden'].join(' ')}>... passion for creation ...</p>
             <div className="social-icons flex justify-end pt-2 pb-4 lg:py-0">
@@ -72,6 +73,15 @@ class Index extends Component {
               <a href={acfOptions.instagram_url}><i className="rg-instagram px-3"></i></a>
             </div>
           </section>
+          <section className="about-me-menu grid-padding lg:order-0 lg:w-full lg:items-center">
+            <ul className="flex justify-between uppercase flex-wrap text-sm lg:text-base">
+            <li><Link href="/o-mnie"><a>O mnie</a></Link></li>
+            <li><Link href="/kontakt"><a>Kontakt</a></Link></li>
+            <li><Link href="/wspolpraca"><a>Współpraca</a></Link></li>
+            <li><Link href="/polityka-prywatnosci"><a>Polityka prywatności</a></Link></li>
+            </ul>
+          </section>
+        </div>
          <div // Content of the page in WP
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
