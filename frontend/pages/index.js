@@ -25,9 +25,6 @@ const tokenExpired = () => {
 };
 
 class Index extends Component {
-  state = {
-    id: '',
-  };
 
   static async getInitialProps() {
     try {
@@ -50,26 +47,7 @@ class Index extends Component {
     return null;
   }
 
-/*   componentDidMount() {
-    const token = localStorage.getItem(Config.AUTH_TOKEN);
-    if (token) {
-      wp.setHeaders('Authorization', `Bearer ${token}`);
-      wp.users()
-        .me()
-        .then(data => {
-          const { id } = data;
-          this.setState({ id });
-        })
-        .catch(err => {
-          if (err.data.status === 403) {
-            tokenExpired();
-          }
-        });
-    }
-  } */
-
   render() {
-    const { id } = this.state;
     const { headerMenu, page } = this.props;
 
     return (
@@ -79,12 +57,12 @@ class Index extends Component {
         <img src="https://via.placeholder.com/600x700" alt="" className="w-full my-4"/>
         <Re className={`absolute bottom-5 right-5`}/>
         </div>
-        {/* <div
+         <div // Content of the page in WP
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: page.content.rendered,
           }}
-        /> */}
+        />
       </Layout>
     );
   }
