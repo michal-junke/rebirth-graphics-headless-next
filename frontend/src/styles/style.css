@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Arsenal:wght@400;700&display=swap');
 
+@import 'icon-font.css';
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;

@@ -64,12 +64,14 @@ class Index extends Component {
         <img src="https://via.placeholder.com/600x700" alt="" className="w-full my-4"/>
         <Re className={[styles['bottom-5'], styles['right-5'], 'absolute'].join(' ')}/>
         </div>
-        <section className="social">
-          <p className={styles.tilted}>... passion for creation ...</p>
-          <a href={acfOptions.behance_url}>Behance</a>
-          <a href={acfOptions.facebook_url}>Facebook</a>
-          <a href={acfOptions.instagram_url}>Instagram</a>
-        </section>
+          <section className="social flex flex-col container grid-padding lg:order-1">
+            <p className={[styles.tilted, 'lg:hidden'].join(' ')}>... passion for creation ...</p>
+            <div className="social-icons flex justify-end pt-2 pb-4 lg:py-0">
+              <a href={acfOptions.behance_url}><i className="rg-behance px-3"></i></a>
+              <a href={acfOptions.facebook_url}><i className="rg-facebook px-3"></i></a>
+              <a href={acfOptions.instagram_url}><i className="rg-instagram px-3"></i></a>
+            </div>
+          </section>
          <div // Content of the page in WP
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
