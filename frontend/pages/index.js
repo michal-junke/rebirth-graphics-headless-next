@@ -29,8 +29,7 @@ const tokenExpired = () => {
 
 class Index extends Component {
 
-  static async getInitialProps() {
-    
+  static async getInitialProps() { 
     try {
       const page = await
         wp
@@ -46,12 +45,9 @@ class Index extends Component {
           .globalOptions()
           .then(data => data.acf);
 
-
       return { page, acfOptions };
     } catch (err) {
-      
       if (err.data.status === 403) {
-        
         tokenExpired();
       }
     }
