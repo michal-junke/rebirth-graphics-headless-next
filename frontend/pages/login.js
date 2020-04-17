@@ -41,10 +41,10 @@ class Login extends Component {
 
   render() {
     const { username, password, message } = this.state;
-    const { headerMenu } = this.props;
+    const { headerMenu, acfOptions } = this.props;
 
     return (
-      <Layout>
+      <Layout acfOptions={acfOptions}>
         <Menu menu={headerMenu} />
         <div className="content login mh4 mv4 w-two-thirds-l center-l">
           <div>

@@ -40,12 +40,7 @@ class Index extends Component {
             return data[0];
           });
 
-      const acfOptions = await
-        wp
-          .globalOptions()
-          .then(data => data.acf);
-
-      return { page, acfOptions };
+      return { page };
     } catch (err) {
       if (err.data.status === 403) {
         tokenExpired();
@@ -56,38 +51,20 @@ class Index extends Component {
   }
 
   render() {
-    const { headerMenu, page, acfOptions } = this.props;
+    const { headerMenu, page, acfOptions} = this.props;
     return (
-      <Layout>
+      <Layout acfOptions={acfOptions}>
         <Menu menu={headerMenu} padding/>
         <div className="relative"> 
         <img src="https://via.placeholder.com/600x700" alt="" className="w-full my-4"/>
         <Re className={[styles['bottom-5'], styles['right-5'], 'absolute'].join(' ')}/>
         </div>
-        <div className="lg:flex lg:justify-between lg:items-center">
-          <section className="social flex flex-col container grid-padding lg:order-1">
-            <p className={[styles.tilted, 'lg:hidden'].join(' ')}>... passion for creation ...</p>
-            <div className="social-icons flex justify-end pt-2 pb-4 lg:py-0">
-              <a href={acfOptions.behance_url}><i className="rg-behance px-3"></i></a>
-              <a href={acfOptions.facebook_url}><i className="rg-facebook px-3"></i></a>
-              <a href={acfOptions.instagram_url}><i className="rg-instagram px-3"></i></a>
-            </div>
-          </section>
-          <section className="about-me-menu grid-padding lg:order-0 lg:w-full lg:items-center">
-            <ul className="flex justify-between uppercase flex-wrap text-sm lg:text-base">
-            <li><Link href="/o-mnie"><a>O mnie</a></Link></li>
-            <li><Link href="/kontakt"><a>Kontakt</a></Link></li>
-            <li><Link href="/wspolpraca"><a>Współpraca</a></Link></li>
-            <li><Link href="/polityka-prywatnosci"><a>Polityka prywatności</a></Link></li>
-            </ul>
-          </section>
-        </div>
-         <div // Content of the page in WP
+{/*          <div // Content of the page in WP
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: page.content.rendered,
           }}
-        />
+        /> */}
       </Layout>
     );
   }
