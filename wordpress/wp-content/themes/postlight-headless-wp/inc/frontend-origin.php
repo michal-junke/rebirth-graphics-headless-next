@@ -18,6 +18,8 @@ function get_frontend_origin() {
         if ($origin && in_array( $origin, array(
             'http://localhost:3000',
             'http://localhost:3001',
+            'http://rebirth.michaljunke.com',
+            'https://rebirth.michaljunke.com'
         ))) {
             return $origin;
         }
