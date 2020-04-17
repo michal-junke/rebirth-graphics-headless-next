@@ -38,7 +38,7 @@ class Menu extends Component {
         <div className="brand lg:w-3/12">
             <Link href="/">
               <a className="starter-kit-logo">
-                <Logo className="w-10/12 mx-auto lg:mx-0" height="auto"/>
+                <Logo className="w-9/12 mx-auto lg:mx-0" height="auto"/>
               </a>
             </Link>
         </div>
@@ -53,8 +53,8 @@ class Menu extends Component {
                 return (
                   
                   <a href={item.url} key={item.ID}>
-                  <img src="https://via.placeholder.com/150?Text=Ikona" alt="" />
-                  <p className="text-center text-xs uppercase w-9/12 mx-auto mt-2 lg:text-xl"><span className="mr-1">I</span>>{item.title}</p>
+                  <img src="https://via.placeholder.com/150?Text=Ikona" alt="" className="rounded-full w-10/12 mx-auto block lg:hidden menu-circle"/>
+                  <p className="text-center text-xs uppercase w-9/12 mx-auto mt-2 lg:text-xl"><span className="mr-1">I</span>{item.title}</p>
                   </a>
                 );
               }
