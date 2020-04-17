@@ -13,5 +13,9 @@
 .grid-margin {
     @apply mx-6;
 }
+
+.primary {
+    color: #BC3D2C;
+}
 /* purgecss end ignore */
 @tailwind utilities;
