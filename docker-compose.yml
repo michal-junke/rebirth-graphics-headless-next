@@ -52,3 +52,13 @@ services:
         volumes:
             - ./frontend-graphql:/home/node/app
         working_dir: /home/node/app
+    phpmyadmin-rebirth:
+        depends_on:
+          - db-headless
+        image: phpmyadmin/phpmyadmin
+        restart: on-failure
+        ports:
+          - 8090:80
+        environment:
+          PMA_HOST: db-headless
+          MYSQL_ROOT_PASSWORD: password 
