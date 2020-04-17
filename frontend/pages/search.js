@@ -4,7 +4,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
-import Menu from '../components/Menu';
+import Menu from '../components/Menu/Menu';
 import WPAPI from 'wpapi';
 import Config from '../config';
 
