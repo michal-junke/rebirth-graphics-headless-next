@@ -5,7 +5,7 @@ import Footer from './Footer/Footer';
 const Layout = props => {
   const { children, acfOptions } = props;
   return (
-    <div className="pt-8">
+    <div className="pt-8 md:pt-0">
       <Header />
       <main>
         {children}
