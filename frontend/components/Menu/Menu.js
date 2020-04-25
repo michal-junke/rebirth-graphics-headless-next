@@ -34,10 +34,9 @@ class Menu extends Component {
     const handleSelectChange = (e) => {
       location.href = e.target.value;
     }
-
     return (
-      <div className={`menu lg:flex lg:justify-between ${this.props.padding ? 'mx-3 md:mx-6' : ''}`}>
-        <div className="brand lg:w-3/12">
+      <div className={`md:absolute md:w-full menu md:flex md:justify-between z-10 md:px-4 lg:px-10 md:pt-10 ${this.props.padding ? 'mx-3 md:mx-6' : ''}`}>
+        <div className="brand md:w-4/12">
             <Link href="/">
               <a className="starter-kit-logo">
                 <picture>
@@ -48,9 +47,9 @@ class Menu extends Component {
             </Link>
         </div>
 
-        <div className="hidden lg:block">Tu będzie hamburger</div>
+        <div className="hidden md:block">Tu będzie hamburger</div>
         
-        <div className="lg:absolute lg:inset-y-0 lg:invisible main-nav">
+        <div className="md:absolute lg:inset-y-0 md:invisible main-nav">
           
             <GlideSlider instance="menu" mobile options={{
   type: 'slider',
