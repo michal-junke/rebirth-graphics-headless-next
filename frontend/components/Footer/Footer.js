@@ -12,9 +12,9 @@ const Footer = (props) => {
       <section className="social flex flex-col container grid-padding lg:order-1">
         <p className={[styles.tilted, 'lg:hidden'].join(' ')}>... passion for creation ...</p>
         <div className="social-icons flex justify-end pt-2 pb-4 lg:py-0">
-          <a href={acfOptions.behance_url}><i className="rg-behance px-3"></i></a>
-          <a href={acfOptions.facebook_url}><i className="rg-facebook px-3"></i></a>
-          <a href={acfOptions.instagram_url}><i className="rg-instagram px-3"></i></a>
+          <a href={acfOptions.behance_url}><i className="rg-behance px-3 text-4xl"><span className="path1"></span><span className="path2"></span></i></a>
+          <a href={acfOptions.facebook_url}><i className="rg-facebook px-3 text-4xl"><span className="path1"></span><span className="path2"></span></i></a>
+          <a href={acfOptions.instagram_url}><i className="rg-instagram px-3 text-4xl"><span className="path1"></span><span className="path2"></span></i></a>
         </div>
       </section>
       <section className="about-me-menu grid-padding lg:order-0 lg:w-full lg:items-center">
