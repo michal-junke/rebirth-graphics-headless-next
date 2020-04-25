@@ -55,8 +55,7 @@ class Index extends Component {
     const { headerMenu, page, acfOptions} = this.props;
     return (
       <Layout acfOptions={acfOptions}>
-        <Menu menu={headerMenu} padding/>
-        <div className="relative"> 
+        <Menu menu={headerMenu}/>
         <GlideSlider instance="index" className="hidden md:block" desktop options={{
 
         }}>
