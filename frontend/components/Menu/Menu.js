@@ -51,6 +51,7 @@ class Menu extends Component {
         
         <div className="md:absolute lg:inset-y-0 md:invisible main-nav">
           
+          <div className="lg:grid grid-cols-5 w-full mt-3 lg:grid-cols-1">
             <GlideSlider instance="menu" mobile options={{
   type: 'slider',
   focusAt: 0,
