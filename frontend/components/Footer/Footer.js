@@ -11,9 +11,15 @@ class Footer extends Component {
     super(props);
 
     this.state = {
+      privacyOptionsVisible: false,
     };
   }
 
+  handlePrivacyClick() {
+    this.setState((prevState) => ({
+      privacyOptionsVisible: !prevState.privacyOptionsVisible,
+    }));
+  }
 
 
   render() {
@@ -50,10 +56,7 @@ class Footer extends Component {
               <li><Link href="/o-mnie"><a>O mnie</a></Link></li>
               <li><Link href="/kontakt"><a>Kontakt</a></Link></li>
               <li><Link href="/wspolpraca"><a>Współpraca</a></Link></li>
-        <li><Link href="/polityka-prywatnosci"><a>Polityka prywatności</a></Link></li>
-        </ul>
-      </section>
-    </div>
+              <li><button onClick={this.handlePrivacyClick.bind(this)} type="button">Polityka prywatności</button></li>
             </ul>
           </section>
         </div>
@@ -78,6 +81,7 @@ class Footer extends Component {
             <a href="https://michaljunke.com" className="inline-block w-5 ml-2" title="Michała Junkego" alt="Przejdź do strony Michała Junkego"><MjLogo /></a>
           </div>
         </div>
+        {privacyOptionsVisible ? <PrivacyOptions /> : ''}
       </>
     );
   }
