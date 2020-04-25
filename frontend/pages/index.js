@@ -64,6 +64,7 @@ class Index extends Component {
           <img src={acfOptions.main_categories[0].image} alt="" className="w-full my-4 md:mt-0 md:max-h-screen object-cover"/>
           <img src="https://via.placeholder.com/600x700" alt="" className="w-full my-4 md:mt-0 md:max-h-screen object-cover"/>
         </GlideSlider>
+        <Re className={[styles['re-icon'], 'absolute', 'md:w-3/12', 'h-auto'].join(' ')}/>
         </div>
 {/*          <div // Content of the page in WP
           // eslint-disable-next-line react/no-danger
