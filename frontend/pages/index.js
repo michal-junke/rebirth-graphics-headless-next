@@ -6,6 +6,7 @@ import WPAPI from 'wpapi';
 import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu/Menu';
+import GlideSlider from '../components/GlideSlider/GlideSlider'
 
 import Config from '../config';
 import styles from './styles/index.module.css';
@@ -56,8 +57,12 @@ class Index extends Component {
       <Layout acfOptions={acfOptions}>
         <Menu menu={headerMenu} padding/>
         <div className="relative"> 
-        <img src="https://via.placeholder.com/600x700" alt="" className="w-full my-4"/>
-        <Re className={[styles['bottom-5'], styles['right-5'], 'absolute'].join(' ')}/>
+        <GlideSlider instance="index" className="hidden md:block" desktop options={{
+
+        }}>
+          <img src={acfOptions.main_categories[0].image} alt="" className="w-full my-4 md:mt-0 md:max-h-screen object-cover"/>
+          <img src="https://via.placeholder.com/600x700" alt="" className="w-full my-4 md:mt-0 md:max-h-screen object-cover"/>
+        </GlideSlider>
         </div>
 {/*          <div // Content of the page in WP
           // eslint-disable-next-line react/no-danger
