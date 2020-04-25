@@ -7,6 +7,7 @@ import Logo from '../../public/images/logo.svg';
 import SearchIcon from '../../public/images/search.svg';
 
 import styles from './Menu.module.css';
+import GlideSlider from '../GlideSlider/GlideSlider';
 
 const getSlug = url => {
   const parts = url.split('/');
@@ -47,14 +48,28 @@ class Menu extends Component {
         
         <div className="lg:absolute lg:inset-y-0 lg:invisible main-nav">
           
-          <div className="grid grid-cols-5 w-full mt-3 lg:grid-cols-1">
+            <GlideSlider instance="menu" mobile options={{
+  type: 'slider',
+  focusAt: 0,
+  bound: true,
+  perView: 5,
+  rewind: false,
+  peek: { before: 10, after: 10 },
+  gap: 10,
+  breakpoints: {
+    375: {
+      perView: 4,
+      peek: { before: 40, after: 40}
+    }
+  }
+}}>
             {menu.items.map(item => {
               if (item.object === 'custom') {
                 return (
                   
                   <a href={item.url} key={item.ID}>
-                  <img src="https://via.placeholder.com/150?Text=Ikona" alt="" className="rounded-full w-10/12 mx-auto block lg:hidden menu-circle"/>
-                  <p className="text-center text-xs uppercase w-9/12 mx-auto mt-2 lg:text-xl"><span className="mr-1">I</span>{item.title}</p>
+                    <img src={item.cat_icon} alt="" className={['rounded-full', 'mx-auto', 'block', 'lg:hidden', styles['menu-circle']].join(' ')}/>
+                    <p className="text-center text-xs uppercase mx-auto mt-2 lg:text-xl block leading-tight"><span className="mr-1">{item.punctuation}</span>{item.title}</p>
                   </a>
                 );
               }
@@ -69,13 +84,15 @@ class Menu extends Component {
                   
                   <a>
                     <div className="menu-button">
-                      <img src="https://via.placeholder.com/150?Text=Ikona" alt="" className="rounded-full w-10/12 mx-auto block lg:hidden menu-circle" />
-                      <p className="text-center text-xs uppercase w-9/12 mx-auto mt-2 lg:text-xl"><span className="mr-1">I</span>{item.title}</p>
+                      <img src={item.cat_icon} alt="" className={['rounded-full', 'mx-auto', 'block', 'lg:hidden', styles['menu-circle']].join(' ')} />
+                      <p className="text-center text-xs uppercase mx-auto mt-2 lg:text-xl block break-words leading-tight"><span className="mr-1 font-bold">{item.punctuation}</span>{item.title}</p>
                     </div>
                   </a>
                 </Link>
               );
             })}
+            </GlideSlider>
+            
           </div>
         </div>
       </div>

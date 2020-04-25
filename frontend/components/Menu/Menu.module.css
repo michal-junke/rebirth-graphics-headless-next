@@ -1,3 +1,9 @@
 .menu-circle {
-    max-width: 45px;
+    min-width: 45px;
+}
+
+@media (min-width: 500px) {
+    .menu-circle {
+        max-width: 80%;
+    }
 }
