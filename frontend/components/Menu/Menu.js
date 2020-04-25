@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Router from 'next/router';
 import Config from '../../config';
 import Logo from '../../public/images/logo.svg';
+const logoDesktop = require('../../public/images/logo-desktop.svg');
 import SearchIcon from '../../public/images/search.svg';
 
 import styles from './Menu.module.css';
@@ -39,7 +40,10 @@ class Menu extends Component {
         <div className="brand lg:w-3/12">
             <Link href="/">
               <a className="starter-kit-logo">
-                <Logo className="w-9/12 mx-auto lg:mx-0" height="auto"/>
+                <picture>
+                  <source srcset="/images/logo-desktop.svg" media="(min-width:768px)"/>
+                  <img src="/images/logo.svg" className="w-8/12 mx-auto lg:mx-0" style={{maxWidth: 335}}/>
+                </picture>
               </a>
             </Link>
         </div>
