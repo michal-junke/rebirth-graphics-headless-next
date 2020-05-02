@@ -12,6 +12,7 @@ import Config from '../config';
 import styles from './styles/index.module.css';
 
 import Re from '../public/images/re-home-page.svg';
+
 const wp = new WPAPI({ endpoint: Config.apiUrl });
 wp.globalOptions = wp.registerRoute('acf/v3/options', '/headless-settings');
 
@@ -29,17 +30,14 @@ const tokenExpired = () => {
 };
 
 class Index extends Component {
-
-  static async getInitialProps() { 
+  static async getInitialProps() {
     try {
       const page = await
-        wp
-          .pages()
-          .slug('strona-glowna')
-          .embed()
-          .then(data => {
-            return data[0];
-          });
+      wp
+        .pages()
+        .slug('strona-glowna')
+        .embed()
+        .then((data) => data[0]);
 
       return { page };
     } catch (err) {
@@ -52,10 +50,10 @@ class Index extends Component {
   }
 
   render() {
-    const { headerMenu, page, acfOptions} = this.props;
+    const { headerMenu, page, acfOptions } = this.props;
     return (
       <Layout acfOptions={acfOptions}>
-        <Menu menu={headerMenu}/>
+        <Menu menu={headerMenu} />
         <div className="relative">
           <img src={acfOptions.mobile_main} className="md:hidden pt-2 pb-4" alt="" />
           <GlideSlider
@@ -71,9 +69,9 @@ class Index extends Component {
           >
             {acfOptions.main_categories.map((cat) => <img src={cat.image} key={cat.image} alt="" className="w-full my-4 md:mt-0 md:max-h-screen object-cover" />)}
           </GlideSlider>
-        <Re className={[styles['re-icon'], 'absolute', 'md:w-3/12', 'h-auto'].join(' ')}/>
+          <Re className={[styles['re-icon'], 'absolute', 'md:w-3/12', 'h-auto'].join(' ')} />
         </div>
-{/*          <div // Content of the page in WP
+        {/*          <div // Content of the page in WP
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: page.content.rendered,
