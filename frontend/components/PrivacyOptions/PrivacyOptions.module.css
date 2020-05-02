@@ -1,0 +1,34 @@
+.privacy-options {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(232, 169, 151, 0.2);
+}
+
+.privacy-options__popup {
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #E8A997;
+    @apply fixed p-3 text-white shadow-lg w-10/12 grid text-center;
+}
+
+@media (min-width: 768px) {
+    .privacy-options__popup {
+        @apply w-auto p-5;
+    }
+}
+
+.privacy-options__close {
+    justify-self: end;
+    color: #E8A997;
+    @apply bg-white w-6 h-6 rounded-full;
+}
+
+
+.popup__title {
+    font-family: Allura, 'sans-serif';
+    @apply text-3xl;
+}

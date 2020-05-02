@@ -1,7 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Arsenal:400,700&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Arsenal:wght@400;700&display=swap');
 
+@import 'icon-font.css';
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
+
+/* Custom properities */
+.grid-padding {
+    @apply px-6;
+}
+
+.grid-margin {
+    @apply mx-6;
+}
+
+.primary {
+    color: #BC3D2C;
+}
 /* purgecss end ignore */
 @tailwind utilities;

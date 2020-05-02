@@ -4,7 +4,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
-import Menu from '../components/Menu';
+import Menu from '../components/Menu/Menu';
 import WPAPI from 'wpapi';
 import Config from '../config';
 
@@ -30,10 +30,10 @@ class Search extends Component {
 
   render() {
     const { posts } = this.state;
-    const { headerMenu } = this.props;
+    const { headerMenu, acfOptions } = this.props;
 
     return (
-      <Layout>
+      <Layout acfOptions={acfOptions}>
         <Menu menu={headerMenu} />
         <div className="content login mh4 mv4 w-two-thirds-l center-l">
           <div>

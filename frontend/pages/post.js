@@ -36,7 +36,7 @@ class Post extends Component {
   }
 
   render() {
-    const { post, headerMenu } = this.props;
+    const { post, headerMenu, acfOptions } = this.props;
     if (!post.title) {
       return <Error statusCode={404} />;
     }
@@ -49,7 +49,7 @@ class Post extends Component {
     ) ? post._embedded['wp:featuredmedia'][0].source_url : false;
 
     return (
-      <Layout className="test">
+      <Layout className="test" acfOptions={acfOptions}>
         <Menu menu={headerMenu} />
         {heroUrl ? (
           <div className={`hero flex items-center post-type-${post.type}`}>

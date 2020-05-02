@@ -31,7 +31,7 @@ class Category extends Component {
   }
 
   render() {
-    const { categories, posts, headerMenu } = this.props;
+    const { categories, posts, headerMenu, acfOptions } = this.props;
     if (categories.length === 0) return <Error statusCode={404} />;
 
     const fposts = posts.map(post => {
@@ -64,7 +64,7 @@ class Category extends Component {
       );
     });
     return (
-      <Layout>
+      <Layout acfOptions={acfOptions}>
         <Menu menu={headerMenu} />
         <div className="content mh4 mt4 mb6 w-two-thirds-l center-l">
           <span className="gray f3 b">Category Archives:</span>

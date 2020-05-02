@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import Error from 'next/error';
 import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
-import Menu from '../components/Menu';
+import Menu from '../components/Menu/Menu';
 import Config from '../config';
 
 class Preview extends Component {
@@ -39,7 +39,7 @@ class Preview extends Component {
   }
 
   render() {
-    const { headerMenu } = this.props;
+    const { headerMenu, acfOptions } = this.props;
     const { post } = this.state;
     const { data } = post || {};
 
@@ -48,7 +48,7 @@ class Preview extends Component {
     }
 
     return (
-      <Layout>
+      <Layout acfOptions={acfOptions}>
         <Menu menu={headerMenu} />
         <h1>{post ? post.title.rendered : ''}</h1>
         <div

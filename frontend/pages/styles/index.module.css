@@ -1,0 +1,22 @@
+.re-icon {
+    bottom: 20%;
+    right: 5%;
+}
+
+@media (min-width:420px) {
+    .re-icon {
+        bottom: 8%;
+    }
+}
+
+@media (min-width:768px) {
+    .re-icon {
+        left: 1.5rem;
+    }
+}
+
+@media (min-width:1024px) {
+    .re-icon {
+        left: 2.5rem;
+    }
+}

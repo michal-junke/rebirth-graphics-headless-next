@@ -1,17 +1,16 @@
 import React from 'react';
 import Header from './Header';
-import Menu from './Menu/Menu';
-import Footer from './Footer';
+import Footer from './Footer/Footer';
 
 const Layout = props => {
-  const { children } = props;
+  const { children, acfOptions } = props;
   return (
-    <div>
+    <div className="pt-8 md:pt-0">
       <Header />
       <main className={`py-10 ${props.padding ? 'px-3 md:px-24' : ''}`}>
         {children}
       </main>
-      <Footer />
+      <Footer acfOptions={acfOptions}/>
     </div>
   );
 };

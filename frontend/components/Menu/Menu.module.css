@@ -1,0 +1,13 @@
+.menu-circle {
+    min-width: 45px;
+}
+
+@media (min-width: 500px) {
+    .menu-circle {
+        max-width: 80%;
+    }
+}
+
+.desktop-menu {
+    background: rgba(188, 61, 44, 0.3);
+}
