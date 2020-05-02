@@ -71,12 +71,12 @@ class Index extends Component {
           </GlideSlider>
           <Re className={[styles['re-icon'], 'absolute', 'md:w-3/12', 'h-auto'].join(' ')} />
         </div>
-        {/*          <div // Content of the page in WP
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: page.content.rendered,
-          }}
-        /> */}
+        {/* <div // Content of the page in WP
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+              __html: page.content.rendered,
+              }}
+            /> */}
       </Layout>
     );
   }
