@@ -17,5 +17,22 @@
 .primary {
     color: #BC3D2C;
 }
+
+h1 {
+    @apply text-4xl;
+    font-family: Allura, 'sans serif';
+}
+
+h2 {
+    @apply text-3xl;
+}
+
+h3 {
+    @apply text-2xl;
+}
+
+h1, h2, h3, h4 {
+    font-family: Allura, 'sans serif';
+}
 /* purgecss end ignore */
 @tailwind utilities;
