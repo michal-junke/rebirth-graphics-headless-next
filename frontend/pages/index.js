@@ -6,7 +6,7 @@ import WPAPI from 'wpapi';
 import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu/Menu';
-import GlideSlider from '../components/GlideSlider/GlideSlider'
+import GlideSlider from '../components/GlideSlider/GlideSlider';
 
 import Config from '../config';
 import styles from './styles/index.module.css';
@@ -57,13 +57,20 @@ class Index extends Component {
       <Layout acfOptions={acfOptions}>
         <Menu menu={headerMenu}/>
         <div className="relative">
-        <img src={acfOptions.mobile_main} className="md:hidden pt-2 pb-4"/>
-        <GlideSlider instance="index" className="hidden md:block" desktop options={{
-
-        }}>
-          <img src={acfOptions.main_categories[0].image} alt="" className="w-full my-4 md:mt-0 md:max-h-screen object-cover"/>
-          <img src="https://via.placeholder.com/600x700" alt="" className="w-full my-4 md:mt-0 md:max-h-screen object-cover"/>
-        </GlideSlider>
+          <img src={acfOptions.mobile_main} className="md:hidden pt-2 pb-4" alt="" />
+          <GlideSlider
+            instance="index"
+            className="hidden md:block"
+            desktop
+            options={{
+              gap: 0,
+              autoplay: 5000,
+              animationDuration: 2000,
+              type: 'carousel',
+            }}
+          >
+            {acfOptions.main_categories.map((cat) => <img src={cat.image} key={cat.image} alt="" className="w-full my-4 md:mt-0 md:max-h-screen object-cover" />)}
+          </GlideSlider>
         <Re className={[styles['re-icon'], 'absolute', 'md:w-3/12', 'h-auto'].join(' ')}/>
         </div>
 {/*          <div // Content of the page in WP
