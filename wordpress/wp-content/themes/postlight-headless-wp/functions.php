@@ -31,3 +31,25 @@ require_once 'inc/acf-options.php';
 
 // Add GraphQL resolvers.
 require_once 'inc/graphql/resolvers.php';
+
+// Add thumbnails for posts
+add_theme_support( 'post-thumbnails', 'post' );
+
+/**
+ * Add a Formatted Date to the WordPress REST API JSON Post Object
+ *
+ * https://adambalee.com/?p=1547
+ */
+add_action('rest_api_init', function() {
+    register_rest_field(
+        array('post'),
+        'formatted_date',
+        array(
+            'get_callback'    => function() {
+                return get_the_date('j M Y');
+            },
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+});
