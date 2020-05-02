@@ -8,6 +8,9 @@ import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu/Menu';
 import Config from '../config';
 
+import styles from './styles/category.module.css';
+import FeaturedImages from '../components/FeaturedImages/FeaturedImages';
+
 const wp = new WPAPI({ endpoint: Config.apiUrl });
 
 class Category extends Component {
@@ -31,44 +34,53 @@ class Category extends Component {
   }
 
   render() {
-    const { categories, posts, headerMenu, acfOptions } = this.props;
+    const {
+      categories, posts, headerMenu, acfOptions,
+    } = this.props;
     if (categories.length === 0) return <Error statusCode={404} />;
 
-    const fposts = posts.map(post => {
-      return (
-        <div key={post.id}>
-          <h2 className="mt5">
-            <Link
-              as={`/post/${post.slug}`}
-              href={`/post?slug=${post.slug}&apiRoute=post`}
-            >
-              <a>{post.title.rendered}</a>
-            </Link>
-          </h2>
-          <div
-            className="mv4"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: post.excerpt.rendered,
-            }}
-          />
+    const fposts = posts.map(post => (
+      <div key={post.id} className="pb-10">
+        <p className="text-right px-3 md:px-24 mt-2">{post.formatted_date}</p>
+        <h2 className="px-3 md:px-24 mt-1 text-center">
           <Link
             as={`/post/${post.slug}`}
             href={`/post?slug=${post.slug}&apiRoute=post`}
           >
-            <span className="round-btn pointer invert ba bw1 pv2 ph3">
-              Read more
-            </span>
+            <a dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
           </Link>
+        </h2>
+        <FeaturedImages images={post.acf.featured_gallery} />
+        <div className="pb-3 text-center">
+          {post.tag_names.map(tag => (
+            <span key={tag} className="pr-1">
+              #
+              {tag}
+            </span>
+          ))}
         </div>
-      );
-    });
+        <div
+          className="px-3 md:mx-auto max-w-screen-md"
+            // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: post.excerpt.rendered,
+          }}
+        />
+        <Link
+          as={`/post/${post.slug}`}
+          href={`/post?slug=${post.slug}&apiRoute=post`}
+        >
+          <button className={[styles['read-more'], 'block', 'cursor-pointer', 'ml-auto', 'mr-3', 'md:mr-24', 'text-2xl'].join(' ')} type="button">
+            czytaj więcej...
+          </button>
+        </Link>
+      </div>
+    ));
     return (
       <Layout acfOptions={acfOptions}>
         <Menu menu={headerMenu} />
-        <div className="content mh4 mt4 mb6 w-two-thirds-l center-l">
-          <span className="gray f3 b">Category Archives:</span>
-          <h1 className="f1 mt3">{categories[0].name}</h1>
+        <div className="image-stub" style={{ background: 'violet', paddingBottom: '75%' }}>Test zdjęcia</div>
+        <div className="">
           {fposts}
         </div>
       </Layout>

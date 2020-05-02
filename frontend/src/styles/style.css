@@ -34,5 +34,15 @@ h3 {
 h1, h2, h3, h4 {
     font-family: Allura, 'sans serif';
 }
+
+.gap {
+    @apply px-3;
+}
+
+@media (min-width: 768px) {
+    .gap {
+        @apply px-24;
+    }
+}
 /* purgecss end ignore */
 @tailwind utilities;
