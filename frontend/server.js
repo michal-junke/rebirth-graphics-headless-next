@@ -30,21 +30,37 @@ app
 
     server.get('/_preview/:id/:rev/:type/:status/:wpnonce', (req, res) => {
       const actualPage = '/preview';
-      const { id, rev, type, status, wpnonce } = req.params;
-      const queryParams = { id, rev, type, status, wpnonce };
+      const {
+        id, rev, type, status, wpnonce,
+      } = req.params;
+      const queryParams = {
+        id, rev, type, status, wpnonce,
+      };
       app.render(req, res, actualPage, queryParams);
     });
 
-    server.get('*', (req, res) => {
-      return handle(req, res);
+    server.get('/:slug', (req, res) => {
+      let actualPage;
+      let queryParams;
+      const categorySlugs = ['listy', 'tworcze-zycie', 'ilustracje', 'podroze', 'portfolio'];
+      if (categorySlugs.includes(req.params.slug)) {
+        actualPage = '/category';
+        queryParams = { slug: req.params.slug, apiRoute: 'category' };
+      } else {
+        actualPage = '/post';
+        queryParams = { slug: req.params.slug, apiRoute: 'page' };
+      }
+      app.render(req, res, actualPage, queryParams);
     });
 
-    server.listen(3001, err => {
+    server.get('*', (req, res) => handle(req, res));
+
+    server.listen(3001, (err) => {
       if (err) throw err;
       console.log('> Ready on http://localhost:3001');
     });
   })
-  .catch(ex => {
+  .catch((ex) => {
     console.error(ex.stack);
     process.exit(1);
   });
