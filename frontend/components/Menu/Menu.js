@@ -77,7 +77,7 @@ class Menu extends Component {
     );
 
     return (
-      <div className={`md:absolute md:w-full menu md:flex md:justify-between z-10 md:px-4 lg:px-10 md:pt-10 ${this.props.padding ? 'mx-3 md:mx-6' : ''}`}>
+      <div className={`md:absolute md:w-full menu md:flex md:justify-between z-10 md:px-4 lg:px-10 md:pt-10 pb-2 md:pb-0 ${this.props.padding ? 'mx-3 md:mx-6' : ''}`}>
         <div className="brand md:w-4/12">
           <Link href="/">
             <a className="starter-kit-logo">

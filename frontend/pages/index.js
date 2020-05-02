@@ -55,7 +55,7 @@ class Index extends Component {
       <Layout acfOptions={acfOptions}>
         <Menu menu={headerMenu} />
         <div className="relative">
-          <img src={acfOptions.mobile_main} className="md:hidden pt-2 pb-4" alt="" />
+          <img src={acfOptions.mobile_main} className="md:hidden pb-4" alt="" />
           <GlideSlider
             instance="index"
             className="hidden md:block"
