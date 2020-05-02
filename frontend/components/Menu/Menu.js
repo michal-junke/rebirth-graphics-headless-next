@@ -43,9 +43,10 @@ class Menu extends Component {
             <button type="button" className="inline px-4 lg:px-10" aria-label="Zamknij menu" onClick={this.desktopMenuToggle}><Cross className="w-8 h-8 z-40 text-white" /></button>
           </li>
           {menu.items.map((item) => {
+            const blank = item.blank ? ['_blank', 'noopener'] : '';
             if (item.object === 'custom') {
               return (
-                <a href={item.url} key={item.ID}>
+                <a href={item.url} target={blank[0]} rel={blank[1]} key={item.ID}>
                   <p className="text-center text-4xl uppercase mx-auto mt-2 block text-white hover:text-gray-400">
                     <span className="font-bold">{item.punctuation}</span>
                     {item.title}
@@ -61,7 +62,7 @@ class Menu extends Component {
                 href={`/${actualPage}?slug=${slug}&apiRoute=${item.object}`}
                 key={item.ID}
               >
-                <a>
+                <a target={blank[0]} rel={blank[1]}>
                   <div className="menu-button">
                     <p className="text-center uppercase mx-auto mt-2 block text-white text-4xl hover:text-gray-400">
                       <span className="font-bold">{item.punctuation}</span>
@@ -117,10 +118,11 @@ class Menu extends Component {
               }}
             >
               {menu.items.map((item) => {
+                const blank = item.blank ? ['_blank', 'noopener'] : '';
                 if (item.object === 'custom') {
                   return (
 
-                    <a href={item.url} key={item.ID}>
+                    <a href={item.url} key={item.ID} target={blank[0]} rel={blank[1]}>
                       <img src={item.cat_icon} alt="" className={['rounded-full', 'mx-auto', 'block', 'lg:hidden', styles['menu-circle']].join(' ')} />
                       <p className="text-center text-xs uppercase mx-auto mt-2 lg:text-xl block leading-tight">
                         <span className="mr-1">{item.punctuation}</span>
@@ -138,7 +140,7 @@ class Menu extends Component {
                     key={item.ID}
                   >
 
-                    <a>
+                    <a target={blank[0]} rel={blank[1]}>
                       <div className="menu-button">
                         <img src={item.cat_icon} alt="" className={['rounded-full', 'mx-auto', 'block', 'lg:hidden', styles['menu-circle']].join(' ')} />
                         <p className="text-center text-xs uppercase mx-auto mt-2 lg:text-xl block break-words leading-tight">
