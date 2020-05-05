@@ -46,7 +46,11 @@ add_action('rest_api_init', function() {
         'formatted_date',
         array(
             'get_callback'    => function() {
-                return get_the_date('j M Y');
+                $date = get_the_date('l, j m Y');
+                $find = array(' 01 ', ' 02 ', ' 03 ', ' 04 ', ' 05 ', ' 06 ', ' 07 ', ' 08', ' 09 ', ' 10 ', ' 11 ', ' 12 ');
+                $replace = array(' I ', ' II ', ' III ', ' IV ', ' V ', ' VI ', ' VII ', ' VIII ', ' IX ', ' X ', ' XI ', ' XII ');
+                $date_roman = str_replace($find, $replace, $date);
+                return $date_roman;
             },
             'update_callback' => null,
             'schema'          => null,
