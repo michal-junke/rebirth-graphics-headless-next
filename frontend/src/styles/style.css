@@ -35,14 +35,30 @@ h1, h2, h3, h4 {
     font-family: Allura, 'sans serif';
 }
 
-.gap {
-    @apply px-3;
+.post-gap {
+    @apply px-8;
 }
 
 @media (min-width: 768px) {
-    .gap {
+    .post-gap {
         @apply px-24;
     }
+
+    .desktop-container {
+        z-index: 3;
+        background: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        max-width: 90%;
+        
+        @apply grid;
+    }
+
+    .tags {
+        order: 5;
+    }
+
     .featured-image {
         z-index: 1;
         max-height: 540px;
@@ -53,6 +69,42 @@ h1, h2, h3, h4 {
 
     .featured-image__img {
         max-height: 540px;
+    }
+
+    .post-tease {
+        max-width: 1000px;
+        height: 540px;
+        @apply w-9/12;
+    }
+
+    /* Dektop layout for post tease*/
+    .post-tease:nth-child(odd) .featured-image {
+        left: 0;
+    }
+
+    .post-tease:nth-child(odd) .desktop-container {
+        right: 0;
+    }
+
+    .post-tease:nth-child(even) .featured-image {
+        right: 0;
+    }
+
+    .post-tease:nth-child(even) .desktop-container {
+        left: 0;
+    }
+    
+}
+
+@media(min-width:1024px) {
+    .desktop-container {
+        max-width: 60%;
+    }
+}
+
+@media(min-width: 1280px) {
+    .desktop-container {
+        max-width: 50%;
     }
 }
 /* purgecss end ignore */
