@@ -43,6 +43,17 @@ h1, h2, h3, h4 {
     .gap {
         @apply px-24;
     }
+    .featured-image {
+        z-index: 1;
+        max-height: 540px;
+        max-width: 80%;
+        transform: translateY(-50%);
+        top:50%;
+    }
+
+    .featured-image__img {
+        max-height: 540px;
+    }
 }
 /* purgecss end ignore */
 @tailwind utilities;
