@@ -39,10 +39,37 @@ app
       app.render(req, res, actualPage, queryParams);
     });
 
+    server.get('/:slug(listy|ilustracje|tworcze-zycie|podroze)/:page([0-9]+)', (req, res) => {
+      const actualPage = '/category';
+      const catId = slug => {
+        let id;
+        // eslint-disable-next-line default-case
+        switch (slug) {
+          case 'listy':
+            id = 3;
+            break;
+          case 'ilustracje':
+            id = 4;
+            break;
+          case 'tworcze-zycie':
+            id = 5;
+            break;
+          case 'podroze':
+            id = 6;
+        }
+        return id;
+      };
+
+      const queryParams = {
+        apiRoute: 'posts', per_page: 2, page: req.params.page, categories: catId(req.params.slug), slug: req.params.slug,
+      };
+      app.render(req, res, actualPage, queryParams);
+    });
+
     server.get('/:slug', (req, res) => {
       let actualPage;
       let queryParams;
-      const categorySlugs = ['listy', 'tworcze-zycie', 'ilustracje', 'podroze', 'portfolio'];
+      const categorySlugs = ['listy', 'tworcze-zycie', 'ilustracje', 'podroze'];
       if (categorySlugs.includes(req.params.slug)) {
         actualPage = '/category';
         queryParams = { slug: req.params.slug, apiRoute: 'category' };
@@ -55,12 +82,12 @@ app
 
     server.get('*', (req, res) => handle(req, res));
 
-    server.listen(3001, (err) => {
+    server.listen(3001, err => {
       if (err) throw err;
       console.log('> Ready on http://localhost:3001');
     });
   })
-  .catch((ex) => {
+  .catch(ex => {
     console.error(ex.stack);
     process.exit(1);
   });

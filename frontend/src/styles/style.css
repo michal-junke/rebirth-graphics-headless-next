@@ -39,6 +39,10 @@ h1, h2, h3, h4 {
     @apply px-8;
 }
 
+.post-tease:last-child {
+    @apply mb-10;
+}
+
 @media (min-width: 768px) {
     .post-gap {
         @apply px-24;
@@ -106,6 +110,15 @@ h1, h2, h3, h4 {
     .desktop-container {
         max-width: 50%;
     }
+}
+
+.pagination-link {
+    background: #E8A997;
+    @apply text-white mx-2 rounded-full inline-block w-8 h-8;
+}
+
+.pagination-link.is-current {
+    background: #BC3D2C;
 }
 /* purgecss end ignore */
 @tailwind utilities;
