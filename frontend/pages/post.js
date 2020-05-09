@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Error from 'next/error';
 import WPAPI from 'wpapi';
 import Menu from '../components/Menu/Menu';
 import Layout from '../components/Layout';
@@ -27,9 +28,7 @@ class Post extends Component {
     const post = await apiMethod
       .slug(slug)
       .embed()
-      .then(data => {
-        return data[0];
-      });
+      .then(data => data[0]);
 
     return { post };
   }
@@ -46,10 +45,10 @@ class Post extends Component {
     }
 
     const heroUrl = (
-      post._embedded &&
-      post._embedded['wp:featuredmedia'] &&
-      post._embedded['wp:featuredmedia'][0] &&
-      post._embedded['wp:featuredmedia'][0].source_url
+      post._embedded
+      && post._embedded['wp:featuredmedia']
+      && post._embedded['wp:featuredmedia'][0]
+      && post._embedded['wp:featuredmedia'][0].source_url
     ) ? post._embedded['wp:featuredmedia'][0].source_url : false;
 
     return (
