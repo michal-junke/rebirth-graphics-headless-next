@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Error from 'next/error';
 import WPAPI from 'wpapi';
 import Menu from '../components/Menu/Menu';
 import Layout from '../components/Layout';
@@ -37,8 +36,13 @@ class Post extends Component {
 
   render() {
     const { post, headerMenu, acfOptions } = this.props;
-    if (!post.title) {
-      return <Error statusCode={404} />;
+    if (post === undefined || !post.title) {
+      return (
+        <Layout acfOptions={acfOptions}>
+          <Menu menu={headerMenu} />
+          <div>Niestety, nie ma takiego wpisu :(</div>
+        </Layout>
+      );
     }
 
     const heroUrl = (
@@ -56,6 +60,7 @@ class Post extends Component {
             <img
               className="w-100"
               src={heroUrl}
+              alt=""
             />
           </div>
         ) : ''}
