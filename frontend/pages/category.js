@@ -42,12 +42,14 @@ class Category extends Component {
     const perPage = 4;
     if (query.page) {
       postsFromApi = await wp
-        .posts().categories(findId(slug))
+        .posts()
+        .categories(findId(slug))
         .perPage(perPage)
         .page(query.page);
     } else {
       postsFromApi = await wp
-        .posts().categories(findId(slug))
+        .posts()
+        .categories(findId(slug))
         .perPage(perPage)
         .page(1);
     }
