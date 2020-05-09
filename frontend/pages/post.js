@@ -28,24 +28,27 @@ class Post extends Component {
     const post = await apiMethod
       .slug(slug)
       .embed()
-      .then(data => {
-        return data[0];
-      });
+      .then(data => data[0]);
 
     return { post };
   }
 
   render() {
     const { post, headerMenu, acfOptions } = this.props;
-    if (!post.title) {
-      return <Error statusCode={404} />;
+    if (post === undefined || !post.title) {
+      return (
+        <Layout acfOptions={acfOptions}>
+          <Menu menu={headerMenu} />
+          <div>Niestety, nie ma takiego wpisu :(</div>
+        </Layout>
+      );
     }
 
     const heroUrl = (
-      post._embedded &&
-      post._embedded['wp:featuredmedia'] &&
-      post._embedded['wp:featuredmedia'][0] &&
-      post._embedded['wp:featuredmedia'][0].source_url
+      post._embedded
+      && post._embedded['wp:featuredmedia']
+      && post._embedded['wp:featuredmedia'][0]
+      && post._embedded['wp:featuredmedia'][0].source_url
     ) ? post._embedded['wp:featuredmedia'][0].source_url : false;
 
     return (
@@ -56,6 +59,7 @@ class Post extends Component {
             <img
               className="w-100"
               src={heroUrl}
+              alt=""
             />
           </div>
         ) : ''}
