@@ -11,6 +11,7 @@ import Config from '../config';
 
 import styles from './styles/category.module.css';
 import FeaturedImages from '../components/FeaturedImages/FeaturedImages';
+import SeeAlso from '../components/SeeAlso/SeeAlso';
 
 const wp = new WPAPI({ endpoint: Config.apiUrl });
 
@@ -54,6 +55,18 @@ class Category extends Component {
         .page(1);
     }
 
+    let listOfCategories = await wp
+      .categories();
+
+    listOfCategories.splice(listOfCategories.findIndex(element => element.slug === slug), 1);
+    listOfCategories = listOfCategories.filter(category => category.count > 0);
+
+    const seeAlso = {};
+    seeAlso.details = listOfCategories[Math.floor(Math.random() * listOfCategories.length)];
+
+    seeAlso.posts = await wp
+      .posts()
+      .categories(seeAlso.details.id);
     return {
       posts: postsFromApi,
       total: postsFromApi._paging.total,
@@ -61,6 +74,7 @@ class Category extends Component {
       queryPage: query.page,
       perPage,
       slug,
+      seeAlso,
     };
   }
 
@@ -89,7 +103,7 @@ class Category extends Component {
 
   render() {
     const {
-      posts, total, totalPages, queryPage, perPage, slug, headerMenu, acfOptions,
+      posts, total, totalPages, queryPage, perPage, slug, headerMenu, acfOptions, seeAlso,
     } = this.props;
     if (total === 0 || queryPage > totalPages) return <Error statusCode={404} />;
 
@@ -194,6 +208,7 @@ class Category extends Component {
           {fposts}
         </div>
         {pagination}
+        <SeeAlso category={seeAlso} />
       </Layout>
     );
   }
