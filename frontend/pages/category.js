@@ -56,9 +56,7 @@ class Category extends Component {
 
     return {
       posts: postsFromApi,
-      // eslint-disable-next-line no-underscore-dangle
       total: postsFromApi._paging.total,
-      // eslint-disable-next-line no-underscore-dangle
       totalPages: postsFromApi._paging.totalPages,
       queryPage: query.page,
       perPage,
