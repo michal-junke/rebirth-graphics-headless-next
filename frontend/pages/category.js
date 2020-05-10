@@ -42,12 +42,14 @@ class Category extends Component {
     let postsFromApi = {};
     const perPage = 4;
     if (query.page) {
+      // Not first page
       postsFromApi = await wp
         .posts()
         .categories(findId(slug))
         .perPage(perPage)
         .page(query.page);
     } else {
+      // There is no query.page -> this is the first page
       postsFromApi = await wp
         .posts()
         .categories(findId(slug))
