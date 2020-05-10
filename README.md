@@ -28,7 +28,8 @@ But except local styles I use global stylesheet in `src/styles/style.css`.
 Most of the CSS is written using Tailwind CSS with the help of purgecss for production purposes (not yet implemented).
 
 ### Pages
-I use one of Next.js features, which are pages generated from `pages` folder. Those serve as templates for content received from node WPAPI.
+I use one of Next.js features, which are pages generated from `pages` folder. 
+Those serve as templates for content received from node WPAPI.
 Local styles for pages (modules) are stored in `styles` subfolder.
 
 The most important templates are:
@@ -69,7 +70,8 @@ Then it returns multiple values:
 
 ##### Pagination
 
-This page uses react-paginating for pagination purposes, but it also introduces two methods to generate first, last page buttons and ellipsis (...) when needed.
+This page uses react-paginating for pagination purposes, 
+but it also introduces two methods to generate first, last page buttons and ellipsis (...) when needed.
 
 ###### firstLastButtonHandler(currentPage, pageNumber, isOnTheLeft, slug, totalPages)
 
