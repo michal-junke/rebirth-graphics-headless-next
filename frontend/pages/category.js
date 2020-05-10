@@ -67,6 +67,7 @@ class Category extends Component {
     seeAlso.posts = await wp
       .posts()
       .categories(seeAlso.details.id);
+
     return {
       posts: postsFromApi,
       total: postsFromApi._paging.total,
@@ -78,7 +79,9 @@ class Category extends Component {
     };
   }
 
+  // eslint-disable-next-line consistent-return
   firstLastButtonHandler = (currentPage, pageNumber, isOnTheLeft, slug, totalPages) => {
+    // eslint-disable-next-line max-len
     if (currentPage !== pageNumber && ((currentPage <= pageNumber - 2 && !isOnTheLeft && totalPages > 3) || (currentPage >= 3 && isOnTheLeft && totalPages > 3))) {
       return (
         <Link
@@ -95,7 +98,9 @@ class Category extends Component {
     }
   }
 
+  // eslint-disable-next-line consistent-return
   ellipsisHandler = (currentPage, totalPages, isOnTheLeft) => {
+    // eslint-disable-next-line max-len
     if ((currentPage >= 4 && isOnTheLeft && totalPages > 4) || (currentPage <= totalPages - 3 && !isOnTheLeft && totalPages > 4)) {
       return <span className="pagination-ellipsis p-2">&hellip;</span>;
     }
@@ -151,6 +156,7 @@ class Category extends Component {
 
     const fposts = posts.map(post =>
       /* console.log(post); */
+      // eslint-disable-next-line implicit-arrow-linebreak
       (
         <div key={post.id} className={[styles['post-tease'], 'post-tease', 'pb-10', 'md:my-24', 'md:relative', 'md:mx-auto'].join(' ')}>
           <p className="text-right post-gap mt-2 md:hidden">{post.formatted_date}</p>
@@ -159,6 +165,7 @@ class Category extends Component {
               as={`/post/${post.slug}`}
               href={`/post?slug=${post.slug}&apiRoute=post`}
             >
+              {/* eslint-disable-next-line react/no-danger */}
               <a dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
             </Link>
           </h2>
@@ -171,6 +178,7 @@ class Category extends Component {
                 as={`/post/${post.slug}`}
                 href={`/post?slug=${post.slug}&apiRoute=post`}
               >
+                {/* eslint-disable-next-line react/no-danger */}
                 <a dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
               </Link>
             </h2>
