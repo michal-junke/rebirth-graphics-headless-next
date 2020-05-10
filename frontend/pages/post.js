@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Error from 'next/error';
 import WPAPI from 'wpapi';
 import Menu from '../components/Menu/Menu';
 import Layout from '../components/Layout';
