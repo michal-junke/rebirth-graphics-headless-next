@@ -15,7 +15,7 @@ const SeeAlso = props => {
         className=""
         options={{
           type: 'slider',
-          peek: {before: 0, after: 100},
+          peek: { before: 0, after: 100 },
           gap: 20,
           perView: 4,
           breakpoints: {
@@ -35,7 +35,7 @@ const SeeAlso = props => {
         {category.posts.map(post => (
           <div key={post.id}>
             <img src={post.acf.featured_gallery[0]} alt="" />
-            <h4 className="text-xl" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+            {/* eslint-disable-next-line react/no-danger */}
           </div>
         ))}
       </GlideSlider>

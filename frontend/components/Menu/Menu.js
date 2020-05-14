@@ -8,7 +8,7 @@ import GlideSlider from '../GlideSlider/GlideSlider';
 import Hamburger from './hamburger.svg';
 import Cross from './cross.svg';
 
-const getSlug = (url) => {
+const getSlug = url => {
   const parts = url.split('/');
   return parts.length > 2 ? parts[parts.length - 2] : '';
 };
@@ -42,7 +42,7 @@ class Menu extends Component {
           <li className="text-right pb-20">
             <button type="button" className="inline px-4 lg:px-10" aria-label="Zamknij menu" onClick={this.desktopMenuToggle}><Cross className="w-6 h-6 lg:w-10 lg:h-10 z-40 text-white" /></button>
           </li>
-          {menu.items.map((item) => {
+          {menu.items.map(item => {
             const blank = item.blank ? ['_blank', 'noopener'] : '';
             if (item.object === 'custom') {
               return (
@@ -117,7 +117,7 @@ class Menu extends Component {
                 },
               }}
             >
-              {menu.items.map((item) => {
+              {menu.items.map(item => {
                 const blank = item.blank ? ['_blank', 'noopener'] : '';
                 if (item.object === 'custom') {
                   return (
