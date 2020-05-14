@@ -6,6 +6,8 @@ import PageWrapper from '../components/PageWrapper';
 import Config from '../config';
 
 import styles from './styles/post.module.scss';
+import ShareButton from '../components/ShareButton/ShareButton';
+
 const wp = new WPAPI({ endpoint: Config.apiUrl });
 
 class Post extends Component {
@@ -80,6 +82,7 @@ class Post extends Component {
             }}
           />
         </div>
+        <ShareButton />
       </Layout>
     );
   }
