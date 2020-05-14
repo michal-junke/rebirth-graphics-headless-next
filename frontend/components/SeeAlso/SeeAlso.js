@@ -6,7 +6,7 @@ const SeeAlso = props => {
   return (
     <>
       <h2 className="text-2xl text-center">poznaj też:</h2>
-      <h3 className="font-sans uppercase">
+      <h3 className="font-sans uppercase grid-padding pb-1">
         {category.details.acf.interpunction}
         {category.details.name}
       </h3>
@@ -36,6 +36,7 @@ const SeeAlso = props => {
           <div key={post.id}>
             <img src={post.acf.featured_gallery[0]} alt="" />
             {/* eslint-disable-next-line react/no-danger */}
+            <h4 className="pt-1 pb-4 text-lg" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
           </div>
         ))}
       </GlideSlider>

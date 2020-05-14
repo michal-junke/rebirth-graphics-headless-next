@@ -162,7 +162,7 @@ class Category extends Component {
       (
         <div key={post.id} className={[styles['post-tease'], 'post-tease', 'pb-10', 'md:my-24', 'md:relative', 'md:mx-auto'].join(' ')}>
           <p className="text-right post-gap mt-2 md:hidden">{post.formatted_date}</p>
-          <h2 className="md:px-24 mt-3 text-center leading-tight md:hidden">
+          <h2 className="md:px-24 mt-3 text-center leading-tight md:hidden grid-padding">
             <Link
               as={`/post/${post.slug}`}
               href={`/post?slug=${post.slug}&apiRoute=post`}
@@ -171,7 +171,7 @@ class Category extends Component {
               <a dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
             </Link>
           </h2>
-          <FeaturedImages images={post.acf.featured_gallery} />
+          <FeaturedImages images={post.acf.featured_gallery} className="grid-padding" />
           <div className="desktop-container lg:py-6 xl:py-10">
             {/* Heading and date for desktop */}
             <p className="text-right mt-2 hidden md:block pr-12 md:pb-4 lg:pb-6">{post.formatted_date}</p>
@@ -193,7 +193,7 @@ class Category extends Component {
               ))}
             </div>
             <div
-              className=" md:px-16 md:mx-auto max-w-screen-md md:text-sm md:leading-tight lg:leading-normal"
+              className=" md:px-16 md:mx-auto max-w-screen-md md:text-sm md:leading-tight lg:leading-normal grid-padding"
             // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{
                 __html: post.excerpt.rendered,
