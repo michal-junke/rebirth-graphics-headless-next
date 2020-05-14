@@ -33,14 +33,14 @@ class Menu extends Component {
   }
 
   render() {
-    const { menu } = this.props;
+    const { menu, isFixed } = this.props;
     const { desktopMenuActive } = this.state;
 
     const desktopMenu = (
-      <div className={[styles['desktop-menu'], 'hidden', 'md:block', 'md:fixed', 'h-full', 'inset-y-0', 'right-0', 'w-5/12', 'z-20'].join(' ')}>
+      <div className={[styles.desktopMenu, 'hidden', 'md:block', 'md:fixed', 'h-full', 'inset-y-0', 'right-0', 'w-5/12', 'z-20'].join(' ')}>
         <ul className="pt-10">
           <li className="text-right pb-20">
-            <button type="button" className="inline px-4 lg:px-10" aria-label="Zamknij menu" onClick={this.desktopMenuToggle}><Cross className="w-8 h-8 z-40 text-white" /></button>
+            <button type="button" className="inline px-4 lg:px-10" aria-label="Zamknij menu" onClick={this.desktopMenuToggle}><Cross className="w-6 h-6 lg:w-10 lg:h-10 z-40 text-white" /></button>
           </li>
           {menu.items.map((item) => {
             const blank = item.blank ? ['_blank', 'noopener'] : '';
@@ -78,20 +78,20 @@ class Menu extends Component {
     );
 
     return (
-      <div className={`md:absolute md:w-full menu md:flex md:justify-between z-10 md:px-4 lg:px-10 md:pt-10 pb-2 md:pb-0 ${this.props.padding ? 'mx-3 md:mx-6' : ''}`}>
+      <div className={`${isFixed ? `${styles.isFixed} md:pt-8 md:fixed md:top-0 mb-10 md:mb-0` : 'md:absolute md:pt-10 pb-2'} md:w-full menu md:flex md:justify-between z-10 md:px-4 lg:px-10 md:pb-0 ${this.props.padding ? 'mx-3 md:mx-6' : ''}`}>
         <div className="brand md:w-4/12">
           <Link href="/">
             <a className="starter-kit-logo">
               <picture>
                 <source srcSet="/images/logo-desktop.svg" media="(min-width:768px)" />
-                <img src="/images/logo.svg" className="w-8/12 mx-auto lg:mx-0" style={{ maxWidth: 275 }} alt="" />
+                <img src="/images/logo.svg" className={`${isFixed ? 'w-6/12 pb-3' : 'w-8/12'} mx-auto lg:mx-0`} style={{ maxWidth: 275 }} alt="" />
               </picture>
             </a>
           </Link>
         </div>
         <div className="hidden md:flex items-start">
           <span className="text-3xl lg:text-5xl text-white mr-6 lg:mr-20 uppercase leading-none">:Tytuł strony</span>
-          <button type="button" aria-label="Otwórz menu" onClick={this.desktopMenuToggle}><Hamburger className={`w-8 h-8 z-40 ${desktopMenuActive ? 'invisible' : ''}`} /></button>
+          <button type="button" className="pt-1" aria-label="Otwórz menu" onClick={this.desktopMenuToggle}><Hamburger className={`w-6 h-6 lg:w-10 lg:h-10 z-40 ${desktopMenuActive ? 'invisible' : ''}`} /></button>
         </div>
         {desktopMenuActive ? desktopMenu : ''}
 
