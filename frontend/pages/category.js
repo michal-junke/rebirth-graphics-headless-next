@@ -9,7 +9,7 @@ import PageWrapper from '../components/PageWrapper';
 import Menu from '../components/Menu/Menu';
 import Config from '../config';
 
-import styles from './styles/category.module.css';
+import styles from './styles/category.module.scss';
 import FeaturedImages from '../components/FeaturedImages/FeaturedImages';
 import SeeAlso from '../components/SeeAlso/SeeAlso';
 

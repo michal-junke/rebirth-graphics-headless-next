@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Config from '../../config';
 
-import styles from './Menu.module.css';
+import styles from './Menu.module.scss';
 import GlideSlider from '../GlideSlider/GlideSlider';
 import Hamburger from './hamburger.svg';
 import Cross from './cross.svg';

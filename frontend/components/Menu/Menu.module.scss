@@ -1,0 +1,22 @@
+.menu-circle {
+    min-width: 45px;
+}
+
+@media (min-width: 500px) {
+    .menu-circle {
+        max-width: 80%;
+    }
+}
+
+.desktopMenu {
+    background: rgba(188, 61, 44, 0.3);
+}
+
+.isFixed {
+    border-bottom: 3px solid rgba(232, 169, 151, 0.3);
+    @apply pb-4;
+
+    @media(min-width: 768px) {
+        background: rgba(188, 61, 44, 0.7);
+    }
+}

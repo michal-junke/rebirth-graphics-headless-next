@@ -9,7 +9,7 @@ import Menu from '../components/Menu/Menu';
 import GlideSlider from '../components/GlideSlider/GlideSlider';
 
 import Config from '../config';
-import styles from './styles/index.module.css';
+import styles from './styles/index.module.scss';
 
 import Re from '../public/images/re-home-page.svg';
 

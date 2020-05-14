@@ -21,6 +21,7 @@
     "next": "^9.3.4",
     "react": "^16.13.1",
     "react-paginating": "^1.4.0",
+    "sass": "^1.26.5",
     "tailwindcss": "^1.2.0",
     "wpapi": "^1.2.1"
   },

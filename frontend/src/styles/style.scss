@@ -1,38 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Arsenal:wght@400;700&display=swap');
 
-@import 'icon-font.css';
+@import 'icon-font.scss';
+
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
 
+@import 'typography.scss';
+
 /* Custom properities */
 .grid-padding {
-    @apply px-6;
+    @apply px-8;
 }
 
 .grid-margin {
-    @apply mx-6;
+    @apply mx-8;
 }
 
 .primary {
     color: #BC3D2C;
-}
-
-h1 {
-    @apply text-4xl;
-    font-family: Allura, 'sans serif';
-}
-
-h2 {
-    @apply text-3xl;
-}
-
-h3 {
-    @apply text-2xl;
-}
-
-h1, h2, h3, h4 {
-    font-family: Allura, 'sans serif';
 }
 
 .post-gap {
@@ -41,6 +27,10 @@ h1, h2, h3, h4 {
 
 .post-tease:last-child {
     @apply mb-10;
+}
+
+.font-decorative {
+    font-family: Allura, sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -119,6 +109,58 @@ h1, h2, h3, h4 {
 
 .pagination-link.is-current {
     background: #BC3D2C;
+}
+
+.post-content {
+    // Gallery display
+    .wp-block-gallery {
+
+        width: 100%;
+
+        @media(min-width:768px) {
+            max-width: 674px;
+            @apply mx-auto;
+          }
+
+        .blocks-gallery-grid {
+            @apply flex flex-wrap m-0;
+        }
+
+        .blocks-gallery-item {
+            margin: 0 16px 16px 0;
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            width: calc((100% - 16px) / 2);
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                width: 100%;
+            }
+        }
+
+        &.columns-2 .blocks-gallery-item:nth-of-type(2n) {
+            margin-right: 0;
+        }
+    }
+
+    // Auto-center images
+    .wp-block-image {
+        max-width: 674px;
+        @apply mx-auto py-4;
+
+        img {
+            @apply mx-auto block;
+        }
+      }
 }
 /* purgecss end ignore */
 @tailwind utilities;
