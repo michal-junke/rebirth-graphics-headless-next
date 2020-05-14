@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FeaturedImages = props => {
-  const { images } = props;
+  const { images, className } = props;
   if (images === null) {
     return '';
   // eslint-disable-next-line no-else-return
@@ -15,7 +15,7 @@ const FeaturedImages = props => {
   // eslint-disable-next-line no-else-return
   } else {
     return (
-      <img src={images[0]} alt="" className="py-3 md:py-0 md:absolute featured-image" />
+      <img src={images[0]} alt="" className={`py-3 md:py-0 md:absolute featured-image ${className}`} />
     );
   }
 };
