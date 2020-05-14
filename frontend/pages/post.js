@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
 import Config from '../config';
 
+import styles from './styles/post.module.scss';
 const wp = new WPAPI({ endpoint: Config.apiUrl });
 
 class Post extends Component {
