@@ -3,9 +3,10 @@ import Glide from '@glidejs/glide';
 
 
 class GlideSlider extends Component {
-
     componentDidMount = () => {
+      setTimeout(() => {
         this.initializeSlider();
+      }, 1);
     }
 
     initializeSlider = () => {
