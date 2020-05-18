@@ -53,11 +53,12 @@ class Post extends Component {
         {tag}
       </span>
     )));
+    const date = (<p className="text-right mt-2 pb-4 md:pb-6 md:mx-auto" style={{ maxWidth: '674px' }}>{post.formatted_date}</p>);
     return (
       <Layout className="md:pt-32 lg:pt-56" acfOptions={acfOptions}>
         <Menu menu={headerMenu} isFixed />
         <div className="grid-margin">
-          <p className="text-right mt-2 pb-4 md:pb-6 md:mx-auto" style={{ maxWidth: '674px' }}>{post.formatted_date}</p>
+          {post.categories[0] === 3 ? '' : date}
           {/* eslint-disable-next-line react/no-danger */}
           <h1 style={{ maxWidth: '33rem' }} className="text-center mx-auto block" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
           <hr className="hidden md:block mx-auto my-4" style={{ maxWidth: '674px', borderColor: '#000', borderTopWidth: '0.5px' }} />
@@ -72,6 +73,9 @@ class Post extends Component {
         ) : ''}
         <div className="tags text-center md:hidden">
           {tags}
+        </div>
+        <div className="grid-margin">
+          {post.categories[0] === 3 ? date : ''}
         </div>
         <div className={`post-content post-${post.id} post-type-${post.type}${post.categories[0] === 3 ? ` ${styles.letter}` : '' }`}>
           <div
