@@ -83,7 +83,7 @@ class Menu extends Component {
           <Link href="/">
             <a className="starter-kit-logo">
               <picture>
-                <source srcSet="/images/logo-desktop.svg" media="(min-width:768px)" />
+                <source srcSet={isFixed ? '/images/logo-desktop-black.svg' : '/images/logo-desktop.svg'} media="(min-width:768px)" />
                 <img src="/images/logo.svg" className={`${isFixed ? 'w-6/12 pb-3' : 'w-8/12'} mx-auto lg:mx-0`} style={{ maxWidth: 275 }} alt="" />
               </picture>
             </a>
