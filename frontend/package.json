@@ -22,7 +22,7 @@
     "react": "^16.13.1",
     "react-paginating": "^1.4.0",
     "sass": "^1.26.5",
-    "tailwindcss": "^1.2.0",
+    "tailwindcss": "^1.4.6",
     "wpapi": "^1.2.1"
   },
   "devDependencies": {
