@@ -64,7 +64,7 @@ class Menu extends Component {
               >
                 <a target={blank[0]} rel={blank[1]}>
                   <div className="menu-button">
-                    <p className="text-center uppercase mx-auto mt-2 block text-white text-4xl hover:text-gray-400">
+                    <p className={`text-right uppercase mx-auto mt-2 block text-white text-4xl ${styles.menuHover}`}>
                       <span className="font-bold">{item.punctuation}</span>
                       {item.title}
                     </p>
