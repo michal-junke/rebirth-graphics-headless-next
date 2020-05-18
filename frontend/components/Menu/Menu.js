@@ -47,7 +47,7 @@ class Menu extends Component {
             if (item.object === 'custom') {
               return (
                 <a href={item.url} target={blank[0]} rel={blank[1]} key={item.ID}>
-                  <p className="text-center text-4xl uppercase mx-auto mt-2 block text-white hover:text-gray-400">
+                  <p className={`text-right uppercase mx-auto mt-2 block text-white text-4xl ${styles.menuHover}`}>
                     <span className="font-bold">{item.punctuation}</span>
                     {item.title}
                   </p>
