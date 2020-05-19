@@ -68,7 +68,7 @@ class Post extends Component {
         </div>
         {heroUrl ? (
           <div className={`hero flex items-center post-type-${post.type}`}>
-            <img className="mx-auto block py-4" src={heroUrl} alt="" />
+            <img className="mx-auto block pt-4 pb-8" src={heroUrl} alt="" />
           </div>
         ) : ''}
         <div className="tags text-center md:hidden">
@@ -77,7 +77,7 @@ class Post extends Component {
         <div className="grid-margin">
           {post.categories[0] === 3 ? date : ''}
         </div>
-        <div className={`post-content post-${post.id} post-type-${post.type}${post.categories[0] === 3 ? ` ${styles.letter}` : '' }`}>
+        <div className={`post-content post-${post.id} post-type-${post.type}${post.categories[0] === 3 ? ` ${styles.letter}` : ''}`}>
           <div
             className="block mx-auto"
             // eslint-disable-next-line react/no-danger

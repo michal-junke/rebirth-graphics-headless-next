@@ -1,3 +1,9 @@
 .letter p {
   text-indent: 3rem;
 }
+
+.letter {
+  h2, h3 {
+    @apply mb-2;
+  }
+}

@@ -51,7 +51,8 @@ h1, h2, h3, h4 {
 }
  
 @media (min-width:768px) {
-  .post-conetent p {
+  .post-content p {
     font-size: 18px;
+    @apply px-0;
   }
 }

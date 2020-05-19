@@ -121,8 +121,8 @@ p.has-text-align-right {
 .post-content {
     // Gallery display
     .wp-block-gallery {
-
         width: 100%;
+        @apply pb-6;
 
         @media(min-width:768px) {
             max-width: 674px;
