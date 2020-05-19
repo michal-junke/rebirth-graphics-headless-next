@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import PrivacyOptions from '../PrivacyOptions/PrivacyOptions';
 
-import styles from './Footer.module.css';
+import styles from './Footer.module.scss';
 import MjLogo from './mj-logo.svg';
 
 class Footer extends Component {
@@ -56,12 +56,12 @@ class Footer extends Component {
             </ul>
           </section>
         </div>
-        <hr className="border-t grid-margin my-3 border-black" />
-        <p className={[styles['bottom-quote'], 'text-center', 'text-2xl'].join(' ')}>zadbaj o relację ze swoją pasją...</p>
+        <hr className="hidden md:block border-t grid-margin my-3 lg:mt-16 border-black md:mx-auto md:max-w-xs" />
+        <p className={[styles['bottom-quote'], 'text-center', 'text-2xl', 'hidden', 'md:block'].join(' ')}>zadbaj o relację ze swoją pasją...</p>
         <section className="newsletter text-center pt-3 primary font-bold text-xl">
           <a href="#subscribe" className="uppercase">Subskrybuj</a>
         </section>
-        <div className="footer grid-padding text-center py-4">
+        <div className="footer grid-padding text-center py-4 md:pt-10">
           <p className="pb-3">
             © Rebirth of passion -
             <span className="uppercase">blog o relacji z pasją | twórczym życiu | projektowaniu | mindfulness</span>
@@ -69,12 +69,12 @@ class Footer extends Component {
           <div className="flex items-center justify-center">
             <p>
               Wykonane z
-              <span title="pasją" className="cursor-default">❤</span>
+              <span title="pasją" className={`cursor-default ml-1 ${styles.heart}`}>❤</span>
               {' '}
               przez
               {' '}
             </p>
-            <a href="https://michaljunke.com" className="inline-block w-5 ml-2" title="Michała Junkego" alt="Przejdź do strony Michała Junkego"><MjLogo /></a>
+            <a href="https://michaljunke.com" className="inline-block w-5 ml-2" title="Michała Junkego" alt="Przejdź do strony Michała Junkego"><MjLogo className="w-4 h-4" /></a>
           </div>
         </div>
         {privacyOptionsVisible ? <PrivacyOptions close={this.handlePrivacyClick} /> : ''}
