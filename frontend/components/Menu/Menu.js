@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import Link from 'next/link';
-import Config from '../../config';
 
 import styles from './Menu.module.scss';
 import GlideSlider from '../GlideSlider/GlideSlider';
@@ -15,25 +14,17 @@ const getSlug = url => {
 
 class Menu extends Component {
   state = {
-    token: null,
-    username: null,
     desktopMenuActive: false,
   };
 
-  componentDidMount() {
-    const token = localStorage.getItem(Config.AUTH_TOKEN);
-    const username = localStorage.getItem(Config.USERNAME);
-    this.setState({ token, username });
-  }
-
   desktopMenuToggle = () => {
-    this.setState((prevState) => ({
+    this.setState(prevState => ({
       desktopMenuActive: !prevState.desktopMenuActive,
     }));
   }
 
   render() {
-    const { menu, isFixed } = this.props;
+    const { menu, isFixed, padding } = this.props;
     const { desktopMenuActive } = this.state;
 
     const desktopMenu = (
@@ -62,7 +53,9 @@ class Menu extends Component {
                 href={`/${actualPage}?slug=${slug}&apiRoute=${item.object}`}
                 key={item.ID}
               >
-                <a target={blank[0]} rel={blank[1]}>
+                {/* eslint-disable-next-line max-len */}
+                {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
+                <a target={blank[0]} rel={blank[1]} onClick={this.desktopMenuToggle}>
                   <div className="menu-button">
                     <p className={`text-right uppercase mx-auto mt-2 block text-white text-4xl ${styles.menuHover}`}>
                       <span className="font-bold">{item.punctuation}</span>
@@ -78,13 +71,13 @@ class Menu extends Component {
     );
 
     return (
-      <div className={`${isFixed ? `${styles.isFixed} md:pt-8 md:fixed md:top-0 mb-10 md:mb-0` : 'md:absolute md:pt-10 pb-2'} md:w-full menu md:flex md:justify-between z-10 md:px-4 lg:px-10 md:pb-0 ${this.props.padding ? 'mx-3 md:mx-6' : ''}`}>
+      <div className={`${isFixed ? `${styles.isFixed} md:pt-8 md:fixed md:top-0 mb-10 md:mb-0` : 'md:absolute md:pt-10 pb-2'} md:w-full menu md:flex md:justify-between z-10 md:px-4 lg:px-10 md:pb-0 ${padding ? 'mx-3 md:mx-6' : ''}`}>
         <div className="brand md:w-4/12">
           <Link href="/">
             <a className="starter-kit-logo">
               <picture>
                 <source srcSet={isFixed ? '/images/logo-desktop-black.svg' : '/images/logo-desktop.svg'} media="(min-width:768px)" />
-                <img src="/images/logo.svg" className={`${isFixed ? 'w-6/12 pb-3' : 'w-8/12'} mx-auto lg:mx-0`} style={{ maxWidth: 275 }} alt="" />
+                <img src="/images/logo.svg" className={`${isFixed ? `w-6/12 pb-3 ${styles.fixedLogo}` : `w-8/12 ${styles.whiteLogo}`} mx-auto lg:mx-0`} alt="" />
               </picture>
             </a>
           </Link>
