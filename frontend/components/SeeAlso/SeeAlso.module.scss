@@ -1,0 +1,21 @@
+
+.seeAlso:hover .apla {
+  @media(min-width: 768px) {
+    background: rgba(188, 61, 44, 0.7);
+    visibility: visible;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h4 {
+      color: white;
+      text-align: center;
+      @apply text-3xl;
+    }
+  }
+}
+
+.hr {
+  border-color: #E8A997;
+}
