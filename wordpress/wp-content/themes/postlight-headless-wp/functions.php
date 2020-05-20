@@ -81,7 +81,7 @@ add_action('rest_api_init', function() {
 
     register_rest_field(
         array('post'),
-        'cat_name',
+        'cat_slug',
         array(
             'get_callback' => function() {
                 $cat = get_the_category();
