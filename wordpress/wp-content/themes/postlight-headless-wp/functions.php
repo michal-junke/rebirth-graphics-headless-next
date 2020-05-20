@@ -78,6 +78,20 @@ add_action('rest_api_init', function() {
             'schema' => null,
         )
     );
+
+    register_rest_field(
+        array('post'),
+        'cat_name',
+        array(
+            'get_callback' => function() {
+                $cat = get_the_category();
+                $cat_slug = $cat[0]->slug;
+                return $cat_slug;
+            },
+            'update_callback' => null,
+            'schema' => null,
+        )
+    );
 });
 /**
  * Change excerpt length
