@@ -172,10 +172,10 @@ class Category extends Component {
             </Link>
           </h2>
           <FeaturedImages images={post.acf.featured_gallery} className="grid-padding" />
-          <div className="desktop-container lg:py-6 xl:py-10">
+          <div className="desktop-container lg:py-6 xl:py-6">
             {/* Heading and date for desktop */}
             <p className="text-right mt-2 hidden md:block pr-12 md:pb-4 lg:pb-6">{post.formatted_date}</p>
-            <h2 className="md:px-24 mt-3 text-center leading-tight hidden md:block md:pb-6">
+            <h2 className="md:px-24 mt-3 text-center leading-tight hidden md:block md:pb-6 border-b-2">
               <Link
                 as={`/post/${post.slug}`}
                 href={`/post?slug=${post.slug}&apiRoute=post`}
@@ -200,8 +200,7 @@ class Category extends Component {
               }}
             />
             <Link
-              as={`/post/${post.slug}`}
-              href={`/post?slug=${post.slug}&apiRoute=post`}
+              href={`/${post.cat_slug}/${post.slug}`}
             >
               <button className={[styles['read-more'], 'block', 'cursor-pointer', 'ml-auto', 'mr-6', 'md:mr-12', 'text-2xl'].join(' ')} type="button">
                 czytaj więcej...
@@ -218,7 +217,7 @@ class Category extends Component {
           {fposts}
         </div>
         {pagination}
-        <SeeAlso category={seeAlso} />
+        <SeeAlso category={seeAlso} buttons />
       </Layout>
     );
   }

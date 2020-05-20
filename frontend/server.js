@@ -10,24 +10,6 @@ app
   .then(() => {
     const server = express();
 
-    server.get('/post/:slug', (req, res) => {
-      const actualPage = '/post';
-      const queryParams = { slug: req.params.slug, apiRoute: 'post' };
-      app.render(req, res, actualPage, queryParams);
-    });
-
-    server.get('/page/:slug', (req, res) => {
-      const actualPage = '/post';
-      const queryParams = { slug: req.params.slug, apiRoute: 'page' };
-      app.render(req, res, actualPage, queryParams);
-    });
-
-    server.get('/category/:slug', (req, res) => {
-      const actualPage = '/category';
-      const queryParams = { slug: req.params.slug };
-      app.render(req, res, actualPage, queryParams);
-    });
-
     server.get('/_preview/:id/:rev/:type/:status/:wpnonce', (req, res) => {
       const actualPage = '/preview';
       const {
@@ -62,6 +44,14 @@ app
 
       const queryParams = {
         apiRoute: 'posts', per_page: 2, page: req.params.page, categories: catId(req.params.slug), slug: req.params.slug,
+      };
+      app.render(req, res, actualPage, queryParams);
+    });
+
+    server.get('/:cat_slug(listy|ilustracje|tworcze-zycie|podroze)/:post', (req, res) => {
+      const actualPage = '/post';
+      const queryParams = {
+        apiRoute: 'post', slug: req.params.post,
       };
       app.render(req, res, actualPage, queryParams);
     });
