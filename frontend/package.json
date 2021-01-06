@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-preset-stage-1": "^6.24.1",
     "express": "^4.16.4",
     "glob": "^7.1.3",
